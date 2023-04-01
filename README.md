@@ -51,40 +51,28 @@
 * `employment_industry` - Type of industry respondent is employed in. Values are represented as short random character strings.
 * `employment_occupation` - Type of occupation of respondent. Values are represented as short random character strings.
 
+# Preprocessing:
+***
 
 ## Data Cleaning:
-***
 
 Null replacement using interpolation and predictive modeling:
 * Null values of features except the four ndvi fatures were imputed with **interpolation** since the missing data points are scarse.
 * Null values for the four ndvi fatures were imputed using **k-Nearest Neighbors - KNN** since there were bigger chunks of missing values.
 
-Interpolation:
 
 * Below graph shows the data matrix with null values before null replacement, and the missing ndvi index values before and after applying KNN:
-
 ![DataMatrix_BeforeAfterCleaning](https://user-images.githubusercontent.com/61121277/199284666-c8f26292-406a-43c3-a6dd-36a780364683.png)
 
-## Preprocessing
-***
-#### Binary (yes/no) Columns:
-* Many of the variables in float type are actually binary (yes/no).
-* Given that the proportion of null values are not too high for these variables, the null values will be replaced with the **most frequent**. 
+## Feature Engineering:
 
-    ##### `health_insurance`:
-    * A **predictive model** will be used to impute the missing values and then these values will be merged into the dataset. 
+* Create `month` and `seasons`: Created new variables representing the month and seasons. 
+* Create `average_ndvi` and its **categorical** version: Created a new feature representing the average NDVI values using the four different locations. Then created a categorical version of average_ndvi to represent watery, soily, sparce_grassy areas.
+* Create **shifts** and **rolled averages** for the main climate variables:
+Research seems to indicate that past sustained heat, precipitation or humidity impacts dengue cases more profoundly than the climate situation right at the time of cases. 
+  - Shifted the variables by 2 weeks to account for the mosquito to reach adulthood and the incubation period of the virus until someone tests positive.
+  - Create rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset. 
 
-#### Numerical Columns:
-* Some of variables in float type are **ordinal** (some sense of ordering to its categories), so they will be treated as **numerical**. 
-* The null values will be replaced with the **Median**. 
-* Standard Scaling for the numerical variables only (since binary and categorical variables are already encoded as 0 and 1)
-
-#### Categorical Columns:
-* The variables in object type are **nominal** (no intrinsic ordering to its categories), so they will be treated as **categorical**. 
-* The null values will be replaced with a **contant('missing')** creating its own level before one-hot encoding these variables. 
-
-    ##### `income_poverty`:
-    * A **predictive model** will be used to impute the missing values and then these values will be merged into the dataset. 
 
 ## Modeling
 ***
