@@ -1,4 +1,4 @@
-# Predict_Dengue_Cases
+# Predict_Dengue_Outbreaks
 
 ## Overview
 ***
