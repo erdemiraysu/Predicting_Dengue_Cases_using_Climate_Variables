@@ -69,8 +69,10 @@ The data was obtained from [DrivenData](https://www.drivendata.org/competitions/
 
 Below graph shows the data matrix with null values before null replacement, and the missing ndvi index values before and after applying KNN:
 
-![missingno_original](https://user-images.githubusercontent.com/61121277/229592221-48bda85a-5e51-4c38-bf3d-0a7da45dc885.png)
-![ndvi_before_after_knn](https://user-images.githubusercontent.com/61121277/229592271-63de0016-1e5e-427f-ab08-99e3ff5fbca8.png)
+![missingno_original](https://user-images.githubusercontent.com/61121277/229639553-b237297d-c7f2-469e-84b6-6da2f58f4748.png)
+
+![KNN_ndvi](https://user-images.githubusercontent.com/61121277/229639430-fd8b933f-9dd3-4d12-abfe-448ba78d10c5.png)
+
 
 
 ### Feature Engineering:
