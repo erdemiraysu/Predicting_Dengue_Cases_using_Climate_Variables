@@ -4,21 +4,21 @@
 ## Overview:
 ***
 
-Dengue fever is a mosquito-borne disease that occurs in tropical and sub-tropical parts of the world. In mild cases, symptoms are similar to the flu: fever, rash, and muscle and joint pain. In severe cases, dengue fever can cause severe bleeding, low blood pressure, and even death.
+**Dengue fever** is a mosquito-borne disease that occurs in tropical and sub-tropical parts of the world. In mild cases, symptoms are similar to the flu: fever, rash, and muscle and joint pain. In severe cases, dengue fever can cause severe bleeding, low blood pressure, and even death.
 
 Because it is carried by mosquitoes, the transmission dynamics of dengue are related to climate variables such as temperature and precipitation; however the relationship to climate is known to be complex.  The way the disease spreads and causes endemics has significant public health implications worldwide.
 
-- CDC is interested in predicting local epidemics of dengue fever so that they can take necessary precautions and efforts before the next spike. They want to know if we can predict the number of dengue fever cases reported each week in San Juan, Puerto Rico.
+* CDC is interested in predicting local epidemics of dengue fever so that they can take necessary precautions and efforts before the next spike. They want to know if we can predict the number of dengue fever cases reported each week in San Juan, Puerto Rico.
 
-- My goal is to build several machine learning models to forecast the upcoming weekly dengue cases as accurately as possible.  
+* My goal is to build several machine learning models to forecast the upcoming weekly dengue cases as accurately as possible.  
 
 ## Business and Data Understanding
 ***
 
-* The data was obtained from [DrivenData](https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/). The data set included weekly dengue case counts along with environmental data collected by various U.S. Federal Government agencies—from the Centers for Disease Control and Prevention to the National Oceanic and Atmospheric Administration in the U.S. Department of Commerce. 
+The data was obtained from [DrivenData](https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/). The data set included weekly dengue case counts along with environmental data collected by various U.S. Federal Government agencies—from the Centers for Disease Control and Prevention to the National Oceanic and Atmospheric Administration in the U.S. Department of Commerce. 
 
 * The full dataset included cases from year 1990 to 2008. The data from 2008-2013 included only features without case counts. 
-
+* 
 * In this project I will be focusing on data on `Puerto Rico` only. The relevant variables/features included in the dataset are:
 
 **Target Feature**: 
@@ -67,7 +67,7 @@ Because it is carried by mosquitoes, the transmission dynamics of dengue are rel
 * Null values for the climate features - except the four ndvi fatures - were imputed with **interpolation** since the missing data points are scarse.
 * Null values for the four ndvi fatures were imputed using **k-Nearest Neighbors - KNN** since there were bigger chunks of missing values.
 
-* Below graph shows the data matrix with null values before null replacement, and the missing ndvi index values before and after applying KNN:
+Below graph shows the data matrix with null values before null replacement, and the missing ndvi index values before and after applying KNN:
 
 ![missingno_original](https://user-images.githubusercontent.com/61121277/229592221-48bda85a-5e51-4c38-bf3d-0a7da45dc885.png)
 ![ndvi_before_after_knn](https://user-images.githubusercontent.com/61121277/229592271-63de0016-1e5e-427f-ab08-99e3ff5fbca8.png)
@@ -93,20 +93,22 @@ The dengue data with labels (1990-2008) was split into training and test sets us
 2. The data was pre-processed. 
 3. Several versions of machine learning models were built, tuned and validated to be able to forecast the time series data:
 
-* **Negative Binomial Regression** (multiple regression used for count data following the negative binomial). This method was chosen specifically because total_cases could be described by a negative binomial distribution with a population variance that is much larger than the population mean. 
+  - **Negative Binomial Regression** (multiple regression used for count data following the negative binomial). This method was chosen specifically because total_cases could be described by a negative binomial distribution with a population variance that is much larger than the population mean. 
 
-* **Sarimax** (Seasonal Autoregressive Integrated Moving Average Exogenous model)- a generalization of an autoregressive moving average (ARMA) model which supports time series data with a seasonal component.
+  - **Sarimax** (Seasonal Autoregressive Integrated Moving Average Exogenous model)- a generalization of an autoregressive moving average (ARMA) model which supports time series data with a seasonal component.
 
-* **XGBoost (Extreme Gradient Boosting) Regression** Gradient-boosted decision tree algorithm used for regression predictive modeling.
+  - **XGBoost (Extreme Gradient Boosting) Regression** Gradient-boosted decision tree algorithm used for regression predictive modeling.
 
-* **LSTM (long short-term memory network)** A variety of recurrent neural networks (RNNs) that are capable of learning long-term dependencies, especially in sequence prediction problems.
+  - **LSTM (long short-term memory network)** A variety of recurrent neural networks (RNNs) that are capable of learning long-term dependencies, especially in sequence prediction problems.
 
 ## Evaluation
 ***
+
 4. Scoring Metric: **Mean Absolute Error** was used afor tuning hyperparameters and evaluating model performance. MAE is a popular metric to use as the error value is easily interpreted. This is because the value is on the same scale as the target you are predicting for.
 
-* **XGBoost** give the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). 
-* Results from the best fitting model are:
+**XGBoost** give the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). 
+
+Results from the best fitting model are:
     - **Mean Absolute Error score of 14.6** for train, 
     - **Mean Absolute Error score of 17.7** for test.
  
