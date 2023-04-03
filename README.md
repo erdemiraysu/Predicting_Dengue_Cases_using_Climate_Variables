@@ -117,8 +117,7 @@ Below graph shows the model re-fitted on the whole dataset and forecasted into t
 ![XGB_Forecast](https://user-images.githubusercontent.com/61121277/229638217-027f53b9-3d90-404c-bee1-d414eb2d6bad.png)
 
 Below graph shows feature importance from the model fitted on the whole dataset:
-![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229638287-9a020daf-afb1-41a5-9334-e4d54c6b7b2f.png)
-
+![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229638499-49fdca54-b306-495e-8f8a-b48d215f56f9.png)
 
 * The most important features in predicting whether a person would get the seasonal vacccine are:
 -  Cumulative humidity
