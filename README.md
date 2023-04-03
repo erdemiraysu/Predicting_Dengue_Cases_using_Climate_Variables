@@ -1,57 +1,66 @@
 # Predict_Dengue_Outbreaks
 
-## Overview
+
+## Overview:
 ***
-- **CDC wants to understand the leading factors in determining whether a person would take the sesoanal flu vaccine so that they could focus on the right strategies for their public efforts and vaccination campaigns to educate the public, raise awareness and maximize vaccine intake.**
 
-- They also want to know the likelihood to receive the seasonal flu vaccine for specific demographic groups and have feedback about whether their efforts are successfull. 
+Dengue fever is a mosquito-borne disease that occurs in tropical and sub-tropical parts of the world. In mild cases, symptoms are similar to the flu: fever, rash, and muscle and joint pain. In severe cases, dengue fever can cause severe bleeding, low blood pressure, and even death.
 
-- **GOAL**: is build a classifier to predict seasonal flu vaccination status using information they shared about their backgrounds, opinions, and health behaviors. My main purpose was to make predictions as accurately as possible while balancing between sensitivity and specificity.
+Because it is carried by mosquitoes, the transmission dynamics of dengue are related to climate variables such as temperature and precipitation; however the relationship to climate is known to be complex.  The way the disease spreads and causes endemics has significant public health implications worldwide.
+
+- CDC is interested in predicting local epidemics of dengue fever so that they can take necessary precautions and efforts before the next spike. They want to know if we can predict the number of dengue fever cases reported each week in San Juan, Puerto Rico.
+
+- My goal is to build several machine learning models to forecast the upcoming weekly dengue cases as accurately as possible.  
 
 ## Business and Data Understanding
 ***
-* The data was obtained from the **National 2009 H1N1 Flu Survey** provided at [DrivenData](https://www.drivendata.org/competitions/66/flu-shot-learning/). 
 
-* This phone survey contained dfata from 26707 particiants, and asked people whether they had received H1N1 and seasonal flu vaccines, in conjunction with information they shared about their lives, opinions, and behaviors. 
+* The data was obtained from [DrivenData](https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/). The data set included weekly dengue case counts along with environmental data collected by various U.S. Federal Government agencies—from the Centers for Disease Control and Prevention to the National Oceanic and Atmospheric Administration in the U.S. Department of Commerce. 
 
-* In this project I will be focusing on `seasonal flu` only and information regarding individuals' opinions about the H1N1 vaccine were excluded from the analyses. The relevant variables/features included in the dataset are:
+* The full dataset included cases from year 1990 to 2008. The data from 2008-2013 included only features without case counts. 
+
+* In this project I will be focusing on data on `Puerto Rico` only. The relevant variables/features included in the dataset are:
 
 **Target Feature**: 
-* `seasonal_vaccine` - Whether respondent received seasonal flu vaccine or not.
+* `total_cases` - Weekly total dengue cases.
 
 **Predictive Features**:
 
-* `behavioral_antiviral_meds` - Has taken antiviral medications. (binary)
-* `behavioral_avoidance` - Has avoided close contact with others with flu-like symptoms. (binary)
-* `behavioral_face_mask` - Has bought a face mask. (binary)
-* `behavioral_wash_hands` - Has frequently washed hands or used hand sanitizer. (binary)
-* `behavioral_large_gatherings` - Has reduced time at large gatherings. (binary)
-* `behavioral_outside_home` - Has reduced contact with people outside of own household. (binary)
-* `behavioral_touch_face` - Has avoided touching eyes, nose, or mouth. (binary)
-* `doctor_recc_seasonal` - Seasonal flu vaccine was recommended by doctor. (binary)
-* `chronic_med_condition` - Has any of the following chronic medical conditions: asthma or an other lung condition, diabetes, a heart condition, a kidney condition, sickle cell anemia or other anemia, a neurological or neuromuscular condition, a liver condition, or a weakened immune system caused by a chronic illness or by medicines taken for a chronic illness. (binary)
-* `child_under_6_months` - Has regular close contact with a child under the age of six months. (binary)
-* `health_worker` - Is a healthcare worker. (binary)
-* `health_insurance` - Has health insurance. (binary)
-* `opinion_seas_vacc_effective` - Respondent's opinion about seasonal flu vaccine effectiveness. 1 = Not at all effective; 2 = Not very effective; 3 = Don't know; 4 = Somewhat effective; 5 = Very effective.
-* `opinion_seas_risk` - Respondent's opinion about risk of getting sick with seasonal flu without vaccine. 1 = Very Low; 2 = Somewhat low; 3 = Don't know; 4 = Somewhat high; 5 = Very high.
-* `opinion_seas_sick_from_vacc` - Respondent's worry of getting sick from taking seasonal flu vaccine. 1 = Not at all worried; 2 = Not very worried; 3 = Don't know; 4 = Somewhat worried; 5 = Very worried. 
-* `age_group` - Age group of respondent.
-* `education` - Self-reported education level.
-* `race` - Race of respondent.
-* `sex` - Sex of respondent.
-* `income_poverty` - Household annual income of respondent with respect to 2008 Census poverty thresholds.
-* `marital_status` - Marital status of respondent.
-* `rent_or_own` - Housing situation of respondent.
-* `employment_status` - Employment status of respondent.
-* `hhs_geo_region` - Respondent's residence using a 10-region geographic classification defined by the U.S. Dept. of Health and Human Services. Values are represented as short random character strings.
-* `census_msa` - Respondent's residence within metropolitan statistical areas (MSA) as defined by the U.S. Census.
-* `household_adults` - Number of other adults in household, top-coded to 3.
-* `household_children` - Number of children in household, top-coded to 3.
-* `employment_industry` - Type of industry respondent is employed in. Values are represented as short random character strings.
-* `employment_occupation` - Type of occupation of respondent. Values are represented as short random character strings.
+***Date Indicators***:
+* `week_start_date` - Date given in yyyy-mm-dd format.
+
+***NOAA's GHCN daily climate data weather station measurements***:
+* `station_max_temp_c` - Maximum temperature
+* `station_min_temp_c` - Minimum temperature
+* `station_avg_temp_c` - Average temperature
+* `station_precip_mm` - Total precipitation
+* `station_diur_temp_rng_c` - Diurnal temperature range
+
+***PERSIANN satellite precipitation measurements (0.25x0.25 degree scale)***:
+* `precipitation_amt_mm` - Total precipitation
+
+***NOAA's NCEP Climate Forecast System Reanalysis measurements (0.5x0.5 degree scale)***:
+* `reanalysis_sat_precip_amt_mm` - Total precipitation
+* `reanalysis_dew_point_temp_k` - Mean dew point temperature
+* `reanalysis_air_temp_k` - Mean air temperature
+* `reanalysis_relative_humidity_percent` - Mean relative humidity
+* `reanalysis_specific_humidity_g_per_kg` - Mean specific humidity
+* `reanalysis_precip_amt_kg_per_m2` - Total precipitation
+* `reanalysis_max_air_temp_k` - Maximum air temperature
+* `reanalysis_min_air_temp_k` - Minimum air temperature
+* `reanalysis_avg_temp_k` - Average air temperature
+* `reanalysis_tdtr_k` - Diurnal temperature range
+
+***Satellite vegetation -greenness - Normalized difference vegetation index (NDVI) - NOAA's CDR Normalized Difference Vegetation Index (0.5x0.5 degree scale) measurements***: 
+* `ndvi_se` - Pixel southeast of city centroid
+* `ndvi_sw` - Pixel southeast of city centroid
+* `ndvi_ne` - Pixel southeast of city centroid
+* `ndvi_nw` - Pixel southeast of city centroid
+
+
 
 ## Preprocessing: 
+***
 
 ### Null Replacement:
 
