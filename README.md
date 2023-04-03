@@ -87,8 +87,6 @@ Research seems to indicate that past sustained heat, precipitation or humidity i
 ## Modeling
 ***
 
-## Modeling:
-
 The dengue data with labels (1990-2008) was split into training and test sets using the first 80% of the data as train, and the final 20% for test. Additional dataset aside with climate features only (without the knowledge of true case counts)(2008-2013) was used to forecast upcoming case counts  for the best performing models.
 
 1. The data was split into training and test sets.
@@ -112,16 +110,11 @@ The dengue data with labels (1990-2008) was split into training and test sets us
     - **Mean Absolute Error score of 14.6** for train, 
     - **Mean Absolute Error score of 17.7** for test.
  
- Below graph shows the model fitted on train and forecasted on test in relation to actual observed values: 
- 
- 
- 
+Below graph shows the model fitted on train and forecasted on test in relation to actual observed values: 
+ ![XGB_Predict](https://user-images.githubusercontent.com/61121277/229637511-fd326f19-f5fe-4c14-9553-026b64dcea4a.png)
 
- 
- 
 Below graph shows the model re-fitted on the whole dataset and forecasted into the future in relation to actual observed values from the whole dataset: 
 ![XGB_Forecast](https://user-images.githubusercontent.com/61121277/229634514-cbb843d6-7660-49ba-9715-9435d6975e05.png)
-
 
 Below graph shows feature importance from the model fitted on the whole dataset:
 ![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229634599-6ae5fe66-5bcc-49ea-bf34-d57ddc0323c8.png)
@@ -131,32 +124,20 @@ Below graph shows feature importance from the model fitted on the whole dataset:
 -  Cumulative Minimum temperature
 -  Cumulative Vegetation Index representing soil
 
-## Conclusion
+
+## Recommendations:
 ***
+* 
+* 
 
-![MostImportantFeatures_Probability_BarPlot](https://user-images.githubusercontent.com/61121277/199609041-e03dd4f4-2340-4512-a684-608f90204cc6.png)
 
-You are more likely to get the vaccine if you:
 
-- have a doctor recommending the vaccine
-- have health insurance
-- think the vaccine is effective
-- think you can get sick from flu
-- are older, especially +65
-- are a health worker
-   
-## Recommendations
+## Limitations, Improvements, Next Steps
 ***
-* Educate the physicians on the importance of vaccination. Make sure they recommend it to their patients.
-* Consider offering universal health coverage. Inform the public that flu vaccine is covered by insurance. 
-* Inform people about the effectiveness and safety of the vaccine, and their risk of falling ill and developing complications if not vaccinated. 
-* Keep focusing on older age groups, because they are at more risk of developing flu-related complications. Also target younger people since their vaccination rates are much lower.
+* 
+* 
+* More recent data needs to be collected after the Covid-19 pandemic since the pandemic might have altered people’s attitude towards flu vaccine as well
 
-## Next Steps
-***
-* Encrypted employment industry, employment occupation, and geographical region info, hard to make any specific suggestions based on these features. 
-* Results on health insurance are not very reliable due to 40% of the data being null and being encoded using predictive modeling. More emphasis needs to be given to this variable next time the survey is conducted even it is a significant feature in predicting vaccine outcome. 
-* More recent data needs to be collected after the Covid-19 pandemic since the pandemic might have altered people’s attitude towards flu vaccine as well. 
 
 ## Repository Structure
     .
