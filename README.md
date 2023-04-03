@@ -51,31 +51,54 @@
 * `employment_industry` - Type of industry respondent is employed in. Values are represented as short random character strings.
 * `employment_occupation` - Type of occupation of respondent. Values are represented as short random character strings.
 
-# Preprocessing:
-***
+## Preprocessing: 
 
-## Data Cleaning:
+### Null Replacement:
 
-Null replacement using interpolation and predictive modeling:
-* Null values of features except the four ndvi fatures were imputed with **interpolation** since the missing data points are scarse.
+* Null values for the climate features - except the four ndvi fatures - were imputed with **interpolation** since the missing data points are scarse.
 * Null values for the four ndvi fatures were imputed using **k-Nearest Neighbors - KNN** since there were bigger chunks of missing values.
 
-
 * Below graph shows the data matrix with null values before null replacement, and the missing ndvi index values before and after applying KNN:
-![DataMatrix_BeforeAfterCleaning](https://user-images.githubusercontent.com/61121277/199284666-c8f26292-406a-43c3-a6dd-36a780364683.png)
 
-## Feature Engineering:
+![missingno_original](https://user-images.githubusercontent.com/61121277/229592221-48bda85a-5e51-4c38-bf3d-0a7da45dc885.png)
+![ndvi_before_after_knn](https://user-images.githubusercontent.com/61121277/229592271-63de0016-1e5e-427f-ab08-99e3ff5fbca8.png)
+
+
+### Feature Engineering:
 
 * Create `month` and `seasons`: Created new variables representing the month and seasons. 
 * Create `average_ndvi` and its **categorical** version: Created a new feature representing the average NDVI values using the four different locations. Then created a categorical version of average_ndvi to represent watery, soily, sparce_grassy areas.
 * Create **shifts** and **rolled averages** for the main climate variables:
 Research seems to indicate that past sustained heat, precipitation or humidity impacts dengue cases more profoundly than the climate situation right at the time of cases. 
   - Shifted the variables by 2 weeks to account for the mosquito to reach adulthood and the incubation period of the virus until someone tests positive.
-  - Create rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset. 
+  - Create rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset.
+  
 
 
 ## Modeling
 ***
+
+## Modeling:
+
+The dengue data with labels (1990-2008) was split into training and test sets using the first 80% of the data as train, and the final 20% for test. Additional dataset aside with climate features only (without the knowledge of true case counts)(2008-2013) was used to forecast upcoming case counts  for the best performing models.
+
+Several versions of machine learning models were built, tuned and validated to be able to forecast the time series data:
+
+* **Negative Binomial Regression** (multiple regression used for count data following the negative binomial). This method was chosen specifically because total_cases could be described by a negative binomial distribution with a population variance that is much larger than the population mean. 
+
+* **Sarimax** (Seasonal Autoregressive Integrated Moving Average Exogenous model)- a generalization of an autoregressive moving average (ARMA) model which supports time series data with a seasonal component.
+
+* **XGBoost (Extreme Gradient Boosting) Regression** Gradient-boosted decision tree algorithm used for regression predictive modeling.
+
+* **LSTM (long short-term memory network)** A variety of recurrent neural networks (RNNs) that are capable of learning long-term dependencies, especially in sequence prediction problems.
+
+## Evaluation:
+
+* Performance is evaluated according to the **Mean Absolute Error**. 
+* MAE is a popular metric to use as the error value is easily interpreted. This is because the value is on the same scale as the target you are predicting for.
+
+
+
 1. The data was split into training and test sets.
 2. The data was pre-processed. 
 3. Several types of classifiers were built, tuned (using GridSearchCV to test combinations of hyperparameters) and validated:
