@@ -111,13 +111,15 @@ The dengue data with labels (1990-2008) was split into training and test sets us
     - **Mean Absolute Error score of 17.7** for test.
  
 Below graph shows the model fitted on train and forecasted on test in relation to actual observed values: 
- ![XGB_Predict](https://user-images.githubusercontent.com/61121277/229637511-fd326f19-f5fe-4c14-9553-026b64dcea4a.png)
+![XGB_Predict](https://user-images.githubusercontent.com/61121277/229638111-9e64b1a8-85c5-4559-8037-39e43be4111f.png)
 
 Below graph shows the model re-fitted on the whole dataset and forecasted into the future in relation to actual observed values from the whole dataset: 
-![XGB_Forecast](https://user-images.githubusercontent.com/61121277/229634514-cbb843d6-7660-49ba-9715-9435d6975e05.png)
+![XGB_Forecast](https://user-images.githubusercontent.com/61121277/229638217-027f53b9-3d90-404c-bee1-d414eb2d6bad.png)
 
 Below graph shows feature importance from the model fitted on the whole dataset:
-![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229634599-6ae5fe66-5bcc-49ea-bf34-d57ddc0323c8.png)
+![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229638287-9a020daf-afb1-41a5-9334-e4d54c6b7b2f.png)
+
+
 * The most important features in predicting whether a person would get the seasonal vacccine are:
 -  Cumulative humidity
 -  Cumulative Maximum temperature
