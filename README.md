@@ -82,7 +82,9 @@ Research seems to indicate that past sustained heat, precipitation or humidity i
 
 The dengue data with labels (1990-2008) was split into training and test sets using the first 80% of the data as train, and the final 20% for test. Additional dataset aside with climate features only (without the knowledge of true case counts)(2008-2013) was used to forecast upcoming case counts  for the best performing models.
 
-Several versions of machine learning models were built, tuned and validated to be able to forecast the time series data:
+1. The data was split into training and test sets.
+2. The data was pre-processed. 
+3. Several versions of machine learning models were built, tuned and validated to be able to forecast the time series data:
 
 * **Negative Binomial Regression** (multiple regression used for count data following the negative binomial). This method was chosen specifically because total_cases could be described by a negative binomial distribution with a population variance that is much larger than the population mean. 
 
@@ -94,43 +96,23 @@ Several versions of machine learning models were built, tuned and validated to b
 
 ## Evaluation:
 
-* Performance is evaluated according to the **Mean Absolute Error**. 
-* MAE is a popular metric to use as the error value is easily interpreted. This is because the value is on the same scale as the target you are predicting for.
+4. Scoring Metric: **Mean Absolute Error** was used afor tuning hyperparameters and evaluating model performance. MAE is a popular metric to use as the error value is easily interpreted. This is because the value is on the same scale as the target you are predicting for.
 
 
-
-1. The data was split into training and test sets.
-2. The data was pre-processed. 
-3. Several types of classifiers were built, tuned (using GridSearchCV to test combinations of hyperparameters) and validated:
-
-    - Logistic Regression
-    - Decision Tree
-    - Random Forest
-    - XGradient Boosted
-    - Stacking Classifier (using above models)
-
-4. Scoring Metric: Roc_Auc was used afor tuning hyperparameters and evaluating model performance, because:
- 
-* We care equally about true positives and true negatives, and the roc curve gives a desirable balance between **sensitivity/recall (maximizing True positive Rate)** and and **1 - specificity  (minimizing False Positive Rate - Probability that a true negative will test positive)**
-
-* We want to utilizes **"probabilities"** of class prediction. Based on this, we’re able to more precisely evaluate and compare the models. 
 
 ## Evaluation
 ***
 
-![Compare_RocCurve_Models](https://user-images.githubusercontent.com/61121277/199509396-629dd8df-bbb7-4715-85b8-e7626bf4c289.png)
-
-* **XGBoost** gives the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). It gives Roc_Auc values of 88% (on Train) and 87% (on test), which is considered **GOOD**.
-
-![XGB_Results1](https://user-images.githubusercontent.com/61121277/199540455-5f1c29eb-cead-421f-bae3-2dad7efe6304.png)
-![XGB_Results2](https://user-images.githubusercontent.com/61121277/199540456-eebd5573-1875-47c2-8501-edcb9ef0633b.png)
+* **XGBoost** give the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). It gives Roc_Auc values of 88% (on Train) and 87% (on test), which is considered **GOOD**.
+![XGB_Forecast](https://user-images.githubusercontent.com/61121277/229634514-cbb843d6-7660-49ba-9715-9435d6975e05.png)
 
 * Results from the best fitting model on the test set are:
     - **accuracy score of 79%**, 
     - **sensitivity/recall score of 79%** 
     - **specificity score of 82%** 
 
-![XGBoost_FeatureImportance](https://user-images.githubusercontent.com/61121277/199292805-566c278c-e1e8-4a4a-b643-044569ce0812.png)
+
+![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229634599-6ae5fe66-5bcc-49ea-bf34-d57ddc0323c8.png)
 
 * The most important 6 features in predicting whether a person would get the seasonal vacccine are:
 
