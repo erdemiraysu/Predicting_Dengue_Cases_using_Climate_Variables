@@ -1,4 +1,4 @@
-# PREDICT DENGUE OUTBREAKS USING CLIMATE VARIABLES:
+# Predict Dengue Outbreaks Using Climate Variables:
 ![image](https://user-images.githubusercontent.com/61121277/229939194-ed3eda3d-186f-4311-b546-4f1e09e3bbd7.png)
 
 ## Overview:
@@ -143,9 +143,11 @@ The most important features in predicting whether a person would get the seasona
   * More meaningful climate related features need to be engineered. 
 
 ## Reproducibility:
+***
 The notebooks were created in Google Colab. See requirements.txt for the packages used.  
 
 ## Repository Structure
+***
     .
     ├── images 
     ├── data 
@@ -158,6 +160,7 @@ The notebooks were created in Google Colab. See requirements.txt for the package
     └── README.md   
 
 ## Contact Info:
+***
 * Email: erdemiraysu@gmail.com
 * GitHub: [@erdemiraysu](https://github.com/erdemiraysu/)
 * [LinkedIn](https://www.linkedin.com/in/aysuerdemir)
