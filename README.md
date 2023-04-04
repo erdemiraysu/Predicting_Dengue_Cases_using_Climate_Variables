@@ -1,5 +1,5 @@
-# Predict_Dengue_Outbreaks
-![image](https://user-images.githubusercontent.com/61121277/229658964-31698d73-ddd9-4cf3-bf54-c82fa941c301.png)
+# PREDICT DENGUE OUTBREAKS USING CLIMATE VARIABLES:
+![image](https://user-images.githubusercontent.com/61121277/229939194-ed3eda3d-186f-4311-b546-4f1e09e3bbd7.png)
 
 ## Overview:
 ***
