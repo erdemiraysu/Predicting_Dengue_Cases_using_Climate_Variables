@@ -84,6 +84,7 @@ Research seems to indicate that past sustained heat, precipitation or humidity i
   - Shifted the variables by 2 weeks to account for the mosquito to reach adulthood and the incubation period of the virus until someone tests positive.
   - Create rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset.
   
+![Screen Shot 2023-04-03 at 7 57 50 PM](https://user-images.githubusercontent.com/61121277/229659091-27e4ea6b-577a-4aa2-9ad0-3a5ad1aebe6a.png)
 
 
 ## Modeling
