@@ -18,8 +18,7 @@ Because it is carried by mosquitoes, the transmission dynamics of dengue are rel
 The data was obtained from [DrivenData](https://www.drivendata.org/competitions/44/dengai-predicting-disease-spread/). The data set included weekly dengue case counts along with environmental data collected by various U.S. Federal Government agencies—from the Centers for Disease Control and Prevention to the National Oceanic and Atmospheric Administration in the U.S. Department of Commerce. 
 
 * The full dataset included cases from year 1990 to 2008. The data from 2008-2013 included only features without case counts. 
-* 
-* In this project I will be focusing on data on `Puerto Rico` only. The relevant variables/features included in the dataset are:
+* In this project I will be focusing on data on **Puerto Rico** only. The relevant variables/features included in the dataset are:
 
 **Target Feature**: 
 * `total_cases` - Weekly total dengue cases.
@@ -66,9 +65,11 @@ The data was obtained from [DrivenData](https://www.drivendata.org/competitions/
 * Null values for the four ndvi fatures were imputed using **k-Nearest Neighbors - KNN** since there were bigger chunks of missing values.
 
 Below graph shows the data matrix with null values before null replacement: 
+
 ![missingno_original](https://user-images.githubusercontent.com/61121277/229639553-b237297d-c7f2-469e-84b6-6da2f58f4748.png)
 
 Below graph shows missing ndvi index values before and after applying KNN algorigthm:
+
 ![KNN_ndvi](https://user-images.githubusercontent.com/61121277/229639430-fd8b933f-9dd3-4d12-abfe-448ba78d10c5.png)
 
 ### Feature Engineering:
@@ -106,16 +107,19 @@ The dengue data with labels (1990-2008) was split into training and test sets us
 **XGBoost** give the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). 
 
 Results from the best fitting model are:
-    - **Mean Absolute Error score of 14.6** for train, 
-    - **Mean Absolute Error score of 17.7** for test.
+* **Mean Absolute Error score of 14.6** for train
+* **Mean Absolute Error score of 17.7** for test.
  
 Below graph shows the model fitted on train and forecasted on test in relation to actual observed values: 
+
 ![XGB_Predict](https://user-images.githubusercontent.com/61121277/229638111-9e64b1a8-85c5-4559-8037-39e43be4111f.png)
 
 Below graph shows the model re-fitted on the whole dataset and forecasted into the future in relation to actual observed values from the whole dataset: 
+
 ![XGB_Forecast](https://user-images.githubusercontent.com/61121277/229638217-027f53b9-3d90-404c-bee1-d414eb2d6bad.png)
 
 Below graph shows feature importance from the model fitted on the whole dataset:
+
 ![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229638499-49fdca54-b306-495e-8f8a-b48d215f56f9.png)
 
 The most important features in predicting whether a person would get the seasonal vacccine are:
@@ -130,7 +134,6 @@ The most important features in predicting whether a person would get the seasona
 * Sustained heat or humidity is a stronger predictor of dengue than individual cases of heat and humidity. 
 * 2 more outbreaks are expected at the end of 2009 and 2012.
 * Climate change and global warming may make dengue outbreaks more deadly in the future. Knowing the next outbreak might help countries prepare.
-![image](https://user-images.githubusercontent.com/61121277/229938239-6a4dec16-4e6d-4d2c-8090-c0fe614acda3.png)
 
 ## Limitations, Improvements, Next Steps
 ***
@@ -138,7 +141,6 @@ The most important features in predicting whether a person would get the seasona
 * Since the relationship between dengue and climate is complex:
   * Nonlinear relationships need to be taken into account with more complex models.
   * More meaningful climate related features need to be engineered. 
-![image](https://user-images.githubusercontent.com/61121277/229938282-2f3600aa-20d6-4b47-a9a9-294704641ce4.png)
 
 ## Reproducibility:
 The notebooks were created in Google Colab. See requirements.txt for the packages used.  
@@ -152,7 +154,7 @@ The notebooks were created in Google Colab. See requirements.txt for the package
     ├── notebook_preprocessing.pdf 
     ├── notebook_modeling.pdf 
     ├── presentation.pdf 
-    ├── env.txt
+    ├── requirements.txt
     └── README.md   
 
 ## Contact Info:
