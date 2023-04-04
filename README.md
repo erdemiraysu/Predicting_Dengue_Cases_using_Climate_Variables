@@ -1,7 +1,5 @@
 # Predict_Dengue_Outbreaks
-
-![image](https://user-images.githubusercontent.com/61121277/229658769-fe523084-0817-49ba-af45-ff887578eded.png)
-
+![image](https://user-images.githubusercontent.com/61121277/229658964-31698d73-ddd9-4cf3-bf54-c82fa941c301.png)
 
 ## Overview:
 ***
