@@ -57,8 +57,6 @@ The data was obtained from [DrivenData](https://www.drivendata.org/competitions/
 * `ndvi_ne` - Pixel southeast of city centroid
 * `ndvi_nw` - Pixel southeast of city centroid
 
-
-
 ## Preprocessing: 
 ***
 
@@ -67,13 +65,11 @@ The data was obtained from [DrivenData](https://www.drivendata.org/competitions/
 * Null values for the climate features - except the four ndvi fatures - were imputed with **interpolation** since the missing data points are scarse.
 * Null values for the four ndvi fatures were imputed using **k-Nearest Neighbors - KNN** since there were bigger chunks of missing values.
 
-Below graph shows the data matrix with null values before null replacement, and the missing ndvi index values before and after applying KNN:
-
+Below graph shows the data matrix with null values before null replacement: 
 ![missingno_original](https://user-images.githubusercontent.com/61121277/229639553-b237297d-c7f2-469e-84b6-6da2f58f4748.png)
 
+Below graph shows missing ndvi index values before and after applying KNN algorigthm:
 ![KNN_ndvi](https://user-images.githubusercontent.com/61121277/229639430-fd8b933f-9dd3-4d12-abfe-448ba78d10c5.png)
-
-
 
 ### Feature Engineering:
 
@@ -82,10 +78,8 @@ Below graph shows the data matrix with null values before null replacement, and 
 * Create **shifts** and **rolled averages** for the main climate variables:
 Research seems to indicate that past sustained heat, precipitation or humidity impacts dengue cases more profoundly than the climate situation right at the time of cases. 
   - Shifted the variables by 2 weeks to account for the mosquito to reach adulthood and the incubation period of the virus until someone tests positive.
-  - Create rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset.
+  - Engineered rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset.
   
-![Screen Shot 2023-04-03 at 7 57 50 PM](https://user-images.githubusercontent.com/61121277/229659091-27e4ea6b-577a-4aa2-9ad0-3a5ad1aebe6a.png)
-
 
 ## Modeling
 ***
@@ -124,27 +118,30 @@ Below graph shows the model re-fitted on the whole dataset and forecasted into t
 Below graph shows feature importance from the model fitted on the whole dataset:
 ![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229638499-49fdca54-b306-495e-8f8a-b48d215f56f9.png)
 
-* The most important features in predicting whether a person would get the seasonal vacccine are:
+The most important features in predicting whether a person would get the seasonal vacccine are:
 -  Cumulative humidity
 -  Cumulative Maximum temperature
 -  Cumulative Minimum temperature
 -  Cumulative Vegetation Index representing soil
 
-
 ## Recommendations:
 ***
-* 
-* 
-
-
+* Dengue cases rely on climate variables but the relationship is complex.
+* Sustained heat or humidity is a stronger predictor of dengue than individual cases of heat and humidity. 
+* 2 more outbreaks are expected at the end of 2009 and 2012.
+* Climate change and global warming may make dengue outbreaks more deadly in the future. Knowing the next outbreak might help countries prepare.
+![image](https://user-images.githubusercontent.com/61121277/229938239-6a4dec16-4e6d-4d2c-8090-c0fe614acda3.png)
 
 ## Limitations, Improvements, Next Steps
 ***
-* 
-* 
-* More recent data needs to be collected after the Covid-19 pandemic since the pandemic might have altered people’s attitude towards flu vaccine as well
+* More recent data needs to be collected to achieve more accurate predictions.  
+* Since the relationship between dengue and climate is complex:
+  * Nonlinear relationships need to be taken into account with more complex models.
+  * More meaningful climate related features need to be engineered. 
+![image](https://user-images.githubusercontent.com/61121277/229938282-2f3600aa-20d6-4b47-a9a9-294704641ce4.png)
 
 ## Reproducibility:
+The notebooks were created in Google Colab. See requirements.txt for the packages used.  
 
 ## Repository Structure
     .
