@@ -1,0 +1,18 @@
+name: env
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - matplotlib=3.7.1
+  - missingno=0.5.2
+  - numpy=1.22.4
+  - pandas=1.4.4
+  - scipy=1.9.2
+  - seaborn=0.12.2
+  - sklearn=1.2.2
+  - statsmodels=0.13.5
+  - xgboost=1.7.4
+  - pip:
+    - keras==2.4.3
+    - pmdarima==2.0.3
