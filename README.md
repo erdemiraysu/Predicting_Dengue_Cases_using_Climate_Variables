@@ -74,14 +74,13 @@ Below graph shows missing ndvi index values before and after applying KNN algori
 
 ### Feature Engineering:
 
-* Create `month` and `seasons`: Created new variables representing the month and seasons. 
-* Create `average_ndvi` and its **categorical** version: Created a new feature representing the average NDVI values using the four different locations. Then created a categorical version of average_ndvi to represent watery, soily, sparce_grassy areas.
-* Create **shifts** and **rolled averages** for the main climate variables:
-Research seems to indicate that past sustained heat, precipitation or humidity impacts dengue cases more profoundly than the climate situation right at the time of cases. 
+* Created `month` and `seasons`: Created new variables representing the month and seasons. 
+* Created `average_ndvi` and its **categorical** version: Created a new feature representing the average NDVI values using the four different locations. Then created a categorical version of average_ndvi to represent watery, soily, sparce_grassy areas.
+* Created **shifts** and **rolled averages** for the main climate variables:
+Research seems to indicate that past sustained heat, precipitation or humidity impacts dengue cases more profoundly than the individual climate situation right at the time of cases. 
   - Shifted the variables by 2 weeks to account for the mosquito to reach adulthood and the incubation period of the virus until someone tests positive.
-  - Engineered rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset. The final lags ranged from 2 months to 4 months. 
+  - Engineered rolled - cumulative means over a period of time ranging from 1 weeks to 20 weeks to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset. The final lags ranged from 2 months to 4 months. 
   
-
 ## Modeling
 ***
 
