@@ -79,13 +79,13 @@ Below graph shows missing ndvi index values before and after applying KNN algori
 * Create **shifts** and **rolled averages** for the main climate variables:
 Research seems to indicate that past sustained heat, precipitation or humidity impacts dengue cases more profoundly than the climate situation right at the time of cases. 
   - Shifted the variables by 2 weeks to account for the mosquito to reach adulthood and the incubation period of the virus until someone tests positive.
-  - Engineered rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset.
+  - Engineered rolled means with a range of lags to see the variable with the highest correlation. The lag with the highest corralation was kept in the final dataset. The final lags ranged from 2 months to 4 months. 
   
 
 ## Modeling
 ***
 
-The dengue data with labels (1990-2008) was split into training and test sets using the first 80% of the data as train, and the final 20% for test. Additional dataset aside with climate features only (without the knowledge of true case counts)(2008-2013) was used to forecast upcoming case counts  for the best performing models.
+The dengue data with labels (1990-2008) was split into training and test sets using the first 80% of the data as train, and the final 20% for test. Additional dataset aside with climate features only (without the knowledge of true case counts)(2008-2013) was used to forecast upcoming case counts for the best performing model only.
 
 1. The data was split into training and test sets.
 2. The data was pre-processed. 
@@ -104,7 +104,7 @@ The dengue data with labels (1990-2008) was split into training and test sets us
 
 4. Scoring Metric: **Mean Absolute Error** was used afor tuning hyperparameters and evaluating model performance. MAE is a popular metric to use as the error value is easily interpreted. This is because the value is on the same scale as the target you are predicting for.
 
-**XGBoost** give the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). 
+**XGBoost Regression** gave the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). 
 
 Results from the best fitting model are:
 * **Mean Absolute Error score of 14.6** for train
@@ -122,29 +122,28 @@ Below graph shows feature importance from the model fitted on the whole dataset:
 
 ![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229638499-49fdca54-b306-495e-8f8a-b48d215f56f9.png)
 
-The most important features in predicting whether a person would get the seasonal vacccine are:
+The most important features in predicting dengue cases are:
 -  Cumulative humidity
 -  Cumulative Maximum temperature
 -  Cumulative Minimum temperature
--  Cumulative Vegetation Index representing soil
+-  Cumulative Vegetation Index representing soil (as opposed to water or grassy-plants)
 
 ## Recommendations:
 ***
 * Dengue cases rely on climate variables but the relationship is complex.
-* Sustained heat or humidity is a stronger predictor of dengue than individual cases of heat and humidity. 
-* 2 more outbreaks are expected at the end of 2009 and 2012.
-* Climate change and global warming may make dengue outbreaks more deadly in the future. Knowing the next outbreak might help countries prepare.
+* Sustained heat or humidity for over 2-3 months is a stronger predictor of dengue than individual cases of heat and humidity. 
+* Climate change and global warming may make dengue outbreaks and similar mosquito born illnesses more deadly in the future. Knowing the next outbreak might help country.
 
 ## Limitations, Improvements, Next Steps
 ***
 * More recent data needs to be collected to achieve more accurate predictions.  
 * Since the relationship between dengue and climate is complex:
   * Nonlinear relationships need to be taken into account with more complex models.
-  * More meaningful climate related features need to be engineered. 
+  * More meaningful and complex climate related features need to be engineered. 
 
 ## Reproducibility:
 ***
-The notebooks were created in Google Colab. See requirements.txt for the packages used.  
+The jupyter notebooks in this project were created in Google Colab. See requirements.txt for the packages used.  
 
 ## Repository Structure
 ***
