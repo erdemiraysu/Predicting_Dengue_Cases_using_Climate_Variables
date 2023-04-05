@@ -128,7 +128,7 @@ The most important features in predicting dengue cases are:
 -  Cumulative Minimum temperature
 -  Cumulative Vegetation Index representing soil (as opposed to water or grassy-plants)
 
-## Recommendations:
+## Conclusions / Recommendations:
 ***
 * Dengue cases rely on climate variables but the relationship is complex.
 * Sustained heat or humidity for over 2-3 months is a stronger predictor of dengue than individual cases of heat and humidity. 
