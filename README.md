@@ -110,11 +110,11 @@ Results from the best fitting model are:
 * **Mean Absolute Error score of 14.6** for train
 * **Mean Absolute Error score of 17.7** for test.
  
-Below graph shows the model fitted on train and forecasted on test in relation to actual observed values: 
+Below graph shows the model fitted on train and forecasted on test in relation to actual observed values. It shows that the final model was able to detect majority of the individual peaks / outbreaks in addition to picking up the seasonality. The two individual peaks on the test set was also detected correctly. 
 
 ![XGB_Predict](https://user-images.githubusercontent.com/61121277/229638111-9e64b1a8-85c5-4559-8037-39e43be4111f.png)
 
-Below graph shows the model re-fitted on the whole dataset and forecasted into the future in relation to actual observed values from the whole dataset: 
+Below graph shows the model re-fitted on the whole dataset and forecasted into the future in relation to actual observed values from the whole dataset. The final model predicts two more moderate size outbreaks towards the end of years 2009 and 2012. 
 
 ![XGB_Forecast](https://user-images.githubusercontent.com/61121277/229638217-027f53b9-3d90-404c-bee1-d414eb2d6bad.png)
 
@@ -122,7 +122,7 @@ Below graph shows feature importance from the model fitted on the whole dataset:
 
 ![XGB_FeatureImportance](https://user-images.githubusercontent.com/61121277/229638499-49fdca54-b306-495e-8f8a-b48d215f56f9.png)
 
-The most important features in predicting dengue cases are:
+The most important features in predicting dengue cases were:
 -  Cumulative humidity
 -  Cumulative Maximum temperature
 -  Cumulative Minimum temperature
@@ -130,9 +130,10 @@ The most important features in predicting dengue cases are:
 
 ## Conclusions / Recommendations:
 ***
-* Dengue cases rely on climate variables but the relationship is complex.
-* Sustained heat or humidity for over 2-3 months is a stronger predictor of dengue than individual cases of heat and humidity. 
-* Climate change and global warming may make dengue outbreaks and similar mosquito born illnesses more deadly in the future. Knowing the next outbreak might help country.
+* Dengue cases rely on climate variables, but the relationship is complex.
+  * Further models should take into consideration cumulative computations of climate features over a period rather than isolated numbers. 
+* Climate change and global warming may make dengue outbreaks and similar mosquito born illnesses more deadly in the future. 
+  * Knowing the next outbreak would help countries to allocate more resources to the health care system for timely intervention. 
 
 ## Limitations, Improvements, Next Steps
 ***
