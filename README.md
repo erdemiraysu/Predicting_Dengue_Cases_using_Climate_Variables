@@ -106,8 +106,8 @@ The dengue data with labels (1990-2008) was split into training and test sets us
 **XGBoost Regression** gave the best performance on both train (tells if model is confident in it’s learning) and test datasets (tells if the results are negeralizable to an unknown dataset). 
 
 Results from the best fitting model are:
-* **Mean Absolute Error score of 14.6** for train
-* **Mean Absolute Error score of 17.7** for test.
+* **Mean Absolute Error score of 14.6 weekly case counts** for train
+* **Mean Absolute Error score of 17.7 weekly case counts** for test.
  
 Below graph shows the model fitted on train and forecasted on test in relation to actual observed values. It shows that the final model was able to detect majority of the individual peaks / outbreaks in addition to picking up the seasonality. The two individual peaks on the test set was also detected correctly. 
 
@@ -130,9 +130,9 @@ The most important features in predicting dengue cases were:
 ## Conclusions / Recommendations:
 ***
 * Dengue cases rely on climate variables, but the relationship is complex.
-  * Further models should take into consideration cumulative computations of climate features over a period rather than isolated numbers. 
+  * Further models should take into consideration cumulative computations of climate features over a period of time rather than isolated numbers. 
 * Climate change and global warming may make dengue outbreaks and similar mosquito born illnesses more deadly in the future. 
-  * Knowing the next outbreak would help countries to allocate more resources to the health care system for timely intervention. 
+  * Knowing the next outbreak would help countries to allocate more resources to the health care system prior to the outbreak for timely intervention. 
 
 ## Limitations, Improvements, Next Steps
 ***
