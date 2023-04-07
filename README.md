@@ -109,7 +109,7 @@ Results from the best fitting model are:
 * **Mean Absolute Error score of 14.6 weekly case counts** for train
 * **Mean Absolute Error score of 17.7 weekly case counts** for test.
  
-Below graph shows the model fitted on train and forecasted on test in relation to actual observed values. It shows that the final model was able to detect majority of the individual peaks / outbreaks in addition to picking up the seasonality. The two individual peaks on the test set was also detected correctly. 
+Below graph shows the model fitted on train and forecasted on test in relation to actual observed values. It shows that the final model was able to detect majority of the individual peaks / outbreaks with an error margin of 14 weekly dengue cases in addition to picking up the seasonality. The two individual peaks towards the end of 2005 and 2007 on the test set was also detected correctly with an error margin of 17 weekly dengue cases. 
 
 ![XGB_Predict](https://user-images.githubusercontent.com/61121277/229638111-9e64b1a8-85c5-4559-8037-39e43be4111f.png)
 
