@@ -1,4 +1,4 @@
-# Predict Dengue Outbreaks Using Climate Variables:
+# Predicting Dengue Outbreaks Using Climate Variables:
 ![image](https://user-images.githubusercontent.com/61121277/229939194-ed3eda3d-186f-4311-b546-4f1e09e3bbd7.png)
 
 ## Overview:
