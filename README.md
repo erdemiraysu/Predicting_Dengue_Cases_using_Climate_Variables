@@ -148,15 +148,15 @@ The jupyter notebooks in this project were created in Google Colab. See requirem
 ## Repository Structure
 ***
     .
-    ├── images 
-    ├── data 
-    ├── notebook_preprocessing.ipynb  
-    ├── notebook_modeling.ipynb  
-    ├── notebook_preprocessing.pdf 
-    ├── notebook_modeling.pdf 
-    ├── presentation.pdf 
-    ├── requirements.txt
-    └── README.md   
+    ├── images                              Images folder, containing all referenced image files
+    ├── data                                Data folder, included in this repository
+    ├── notebook_preprocessing.ipynb        Main Jupyter notebook 1, contains data cleaning, preprocessing and exploratory analyses 
+    ├── notebook_modeling.ipynb             Main Jupyter notebook 2, contains modeling
+    ├── notebook_preprocessing.pdf          Pdf version of main Jupyter notebook 1 
+    ├── notebook_modeling.pdf               Pdf version of main Jupyter notebook 2
+    ├── presentation.pdf                    PDF Version of project presentation   
+    ├── requirements.txt                    Required packages
+    └── README.md                           The top-level README
 
 ## Contact Info:
 ***
